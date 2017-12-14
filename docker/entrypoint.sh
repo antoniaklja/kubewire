@@ -61,4 +61,4 @@ fi
 
 # keep running
 echo "Running"
-while true; do wg show wg0; sleep 60; done # FIXME maybe replace with supervisord?
+while true; do wg show wg0; sleep 120; done # FIXME replace with supervisord?

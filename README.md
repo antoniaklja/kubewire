@@ -4,7 +4,7 @@ Self hosted secure and scalable VPN based on [WireGuard](https://www.wireguard.c
 
 ## Architecture
 
-    TODO(bantoniak)
+    TODO
 
 ## Install
 
@@ -62,7 +62,7 @@ Add peer on server
 
 ### Kubernetes
 
-    TODO(bantoniak)
+    TODO
 
 ## Reporting a security vulnerability
 
