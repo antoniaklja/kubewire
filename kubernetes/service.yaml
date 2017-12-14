@@ -1,1 +1,13 @@
-TODO(bantoniak)
+kind: Service
+metadata:
+  name: kubewire
+  namespace: kube-system
+  labels:
+    app: kubewire
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5182
+    protocol: UDP
+  selector:
+    name: kubewire

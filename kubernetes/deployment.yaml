@@ -1,1 +1,25 @@
-TODO(bantoniak)
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kubewire
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      labels:
+        app: kubewire
+    spec:
+      containers:
+        - image: TODO
+          name: kubewire
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5182
+              protocol: UDP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 250Mi
+            requests:
+              cpu: 100m
+              memory: 150Mi
