@@ -1,6 +1,10 @@
 # [WIP] Kubewire
 
-Self hosted secure and scalable VPN for your Kubernetes cluster.
+Self hosted secure and scalable VPN based on [WireGuard](wireguard.com) for your Kubernetes cluster.
+
+## Architecture
+
+    TODO(bantoniak)
 
 ## Install
 
