@@ -20,11 +20,6 @@ if [[ ${mode} == "server" ]] ; then
     echo "Enabling IPv4 Forwarding"
     sysctl -w net.ipv4.conf.all.forwarding=1 || echo "Failed to enable IPv4 Forwarding"
 
-    echo "Enabling IPv6 Forwarding"
-    sysctl -w net.ipv6.conf.all.disable_ipv6=0 || echo "Failed to enable IPv6 support"
-    sysctl -w net.ipv6.conf.default.forwarding=1 || echo "Failed to enable IPv6 Forwarding default"
-    sysctl -w net.ipv6.conf.all.forwarding=1 || echo "Failed to enable IPv6 Forwarding"
-
     # https://github.com/kylemanna/docker-openvpn/issues/40
     iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 fi
@@ -58,6 +53,9 @@ if [[ ${mode} == "client" ]] ; then
     ip route add ${server_endpoint}/32 via ${default_gateway} dev eth0
 fi
 # TODO configure route table in server mode
+
+# the outgoing packets are altered to have the server IP address
+iptables -A FORWARD -i wgnet0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 # keep running
 echo "Running"
