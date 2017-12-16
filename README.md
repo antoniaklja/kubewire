@@ -9,8 +9,11 @@ Self hosted secure and scalable VPN based on [WireGuard](https://www.wireguard.c
 ## Roadmap
 
 Current: Proof of Concept, client and server are working
+
 Phase 1: Easy deployment on Kubernetes, better configuration 
+
 Phase 2: Web UI integrated with SSO
+
 Phase 3: Custom integrations, e.g. LDAP
 
 ## Installation 
