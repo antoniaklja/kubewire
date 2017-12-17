@@ -14,7 +14,7 @@ Phase 1: Easy deployment on Kubernetes, better configuration
 
 Phase 2: Web UI integrated with SSO using [oauth2_proxy](https://github.com/bitly/oauth2_proxy)
 
-Phase 3: Custom integrations, e.g. LDAP, Kubernetes RBAC
+Phase 3: Client running in userspace, integration with Kubernetes
 
 ## Installation 
 
