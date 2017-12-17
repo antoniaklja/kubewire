@@ -21,13 +21,13 @@ ip link del dev wg0 2>/dev/null || true
 ip link add dev wg0 type wireguard
 wg set wg0 private-key /tmp/wg_private_key
 wg set wg0 listen-port 5182
-ip address add 192.168.0.0/24 dev wg0
+ip address add 10.0.0.2/16 dev wg0
 
 echo "Activating wireguard network interface"
 ip link set up dev wg0
 
 echo "Adding server ${server_endpoint}:${server_port} peer ${server_public_key}"
-wg set wg0 peer ${server_public_key} allowed-ips 0.0.0.0/0 endpoint ${server_endpoint}:${server_port}
+wg set wg0 peer ${server_public_key} allowed-ips 0.0.0.0/0 endpoint ${server_endpoint}:${server_port} persistent-keepalive 25
 
 echo "Configuring route tables"
 host="$(wg show wg0 endpoints | sed -n 's/.*\t\(.*\):.*/\1/p')"

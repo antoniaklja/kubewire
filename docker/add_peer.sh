@@ -9,6 +9,6 @@ if [[ $# -ne 3 ]] ; then
     exit 1
 fi
 
-wg set wg0 peer ${peer_public_key} allowed-ips ${peer_endpoint}/32 endpoint ${peer_endpoint}:${peer_port}
+wg set wg0 peer ${peer_public_key} allowed-ips 0.0.0.0/0 endpoint ${peer_endpoint}:${peer_port} persistent-keepalive 25
 
 echo "Added new peer ${peer_endpoint}:${peer_port} ${peer_public_key}"

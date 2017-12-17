@@ -21,6 +21,25 @@ Phase 3: Custom integrations, e.g. LDAP, Kubernetes RBAC
 There are various ways of installing Kubewire.
 Please take a look at [getting-started](getting-started.md) section for more details.
 
+## Troubleshooting
+
+If creating a new link returns
+
+    # ip link add dev wg0 type wireguard
+    RTNETLINK answers: Operation not supported
+
+you probably miss the `wireguard-dkms` and `wireguard-tools` packages on host.
+
+
+If DNS resoultion doesn't work, check
+
+    cat /etc/resolv.conf
+    
+    
+If `network is unreachable` remove wireguard network interface
+
+    ip link del dev wg0    
+
 ## Reporting a security vulnerability
 
 In case of any concerns or real vulnerability do not hesitate to open an issue.
