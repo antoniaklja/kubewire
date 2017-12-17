@@ -7,9 +7,6 @@ set -e
 echo "Enabling IPv4 Forwarding"
 sysctl -w net.ipv4.conf.all.forwarding=1 || echo "Failed to enable IPv4 Forwarding"
 
-# https://github.com/kylemanna/docker-openvpn/issues/40
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-
 echo "Generating server keys"
 wg genkey | tee /tmp/wg_private_key | wg pubkey
 
