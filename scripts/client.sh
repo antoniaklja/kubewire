@@ -27,6 +27,8 @@ echo "Activating wireguard network interface"
 ip link set up dev wg0
 
 echo "Adding server ${server_endpoint}:${server_port} peer ${server_public_key}"
+# include `persistent-keepalive 25` for NAT
+# https://www.wireguard.com/quickstart/#nat-and-firewall-traversal-persistence
 wg set wg0 peer ${server_public_key} allowed-ips 0.0.0.0/0 endpoint ${server_endpoint}:${server_port} persistent-keepalive 25
 
 echo "Configuring route tables"
