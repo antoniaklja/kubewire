@@ -1,10 +1,13 @@
 # [WIP] Kubewire
 
-Self hosted secure and scalable VPN based on [WireGuard](https://www.wireguard.com) for your Kubernetes cluster.
+Self hosted secure and scalable VPN based on [WireGuard](https://www.wireguard.com) with Kubernetes integration.
 
-## Architecture
-
-    TODO
+    WireGuard is a secure network tunnel, operating at layer 3, implemented as a kernel virtual network
+    interface for Linux, which aims to replace both IPsec for most use cases, as well as popular user space and/or
+    TLS-based solutions like OpenVPN, while being more secure, more performant, and easier to use
+    
+For more information please take a look at [Whitepaper](https://www.wireguard.com/papers/wireguard.pdf)    
+    
 
 ## Roadmap
 
