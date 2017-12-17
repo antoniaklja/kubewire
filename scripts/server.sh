@@ -3,4 +3,4 @@
 set -e
 
 docker rm -f kubewire-server || true
-docker run --rm --name kubewire-server --privileged kubewire
+docker run --rm --name kubewire-server --privileged antoniaklja/kubewire:latest
