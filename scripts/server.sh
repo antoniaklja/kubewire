@@ -2,4 +2,5 @@
 
 set -e
 
-sudo docker run --privileged kubewire server
+docker rm -f kubewire-server || true
+docker run --rm --name kubewire-server --privileged kubewire server
