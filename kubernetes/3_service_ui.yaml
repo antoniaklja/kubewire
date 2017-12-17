@@ -1,0 +1,13 @@
+kind: Service
+metadata:
+  name: kubewire-ui
+  namespace: vpn
+  labels:
+    app: kubewire
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5182
+    protocol: UDP
+  selector:
+    name: kubewire

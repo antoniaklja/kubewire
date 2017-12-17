@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: kubewire
-  namespace: kube-system
+  namespace: vpn
 spec:
   template:
     metadata:

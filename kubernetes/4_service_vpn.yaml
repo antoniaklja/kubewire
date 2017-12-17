@@ -1,7 +1,7 @@
 kind: Service
 metadata:
-  name: kubewire
-  namespace: kube-system
+  name: kubewire-vpn
+  namespace: vpn
   labels:
     app: kubewire
 spec:
