@@ -10,12 +10,14 @@ spec:
         app: kubewire
     spec:
       containers:
-        - image: TODO
+        - image: antoniaklja/kubewire:latest
           name: kubewire
           imagePullPolicy: Always
           ports:
-            - containerPort: 5182
-              protocol: UDP
+          - containerPort: 5182 # network tunnel
+            protocol: UDP
+          - containerPort: 80 # web ui
+            protocol: TCP
           resources:
             limits:
               cpu: 200m
