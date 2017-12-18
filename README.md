@@ -13,7 +13,7 @@ For more information please take a look at [Whitepaper](https://www.wireguard.co
 
 Current: Proof of Concept, client and server are working
 
-Phase 1: Easy deployment on Kubernetes, better configuration 
+Phase 1: Easy deployment on Kubernetes with UDP load balancing, better configuration
 
 Phase 2: Web UI integrated with SSO using [oauth2_proxy](https://github.com/bitly/oauth2_proxy)
 
