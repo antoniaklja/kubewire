@@ -1,6 +1,6 @@
 # [WIP] Kubewire
 
-Self hosted secure and scalable VPN based on [WireGuard](https://www.wireguard.com) with Kubernetes integration.
+Self hosted and scalable VPN for Kubernetes based on [WireGuard](https://www.wireguard.com).
 
 > WireGuard is a secure network tunnel, operating at layer 3, implemented as a kernel virtual network
 > interface for Linux, which aims to replace both IPsec for most use cases, as well as popular user space and/or
@@ -8,6 +8,14 @@ Self hosted secure and scalable VPN based on [WireGuard](https://www.wireguard.c
     
 For more information please take a look at [Whitepaper](https://www.wireguard.com/papers/wireguard.pdf)    
     
+## Current limitations
+
+Currently [WireGuard](https://www.wireguard.com) does not support cross platform client running in userspace.
+It is planned to release several [userspace implementations in safe languages like Go and Rush](https://www.wireguard.com/xplatform/).
+ 
+
+Also not every cloud provider supports `UPD` load balancing based k8s services.
+We have to figure out how to expose `UPD` server on k8s. 
 
 ## Roadmap
 
