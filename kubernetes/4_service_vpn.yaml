@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kubewire
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 5182
     protocol: UDP
