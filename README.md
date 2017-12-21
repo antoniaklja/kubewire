@@ -19,9 +19,9 @@ We have to figure out how to expose `UPD` server on k8s.
 
 ## Roadmap
 
-Current: Proof of Concept, client and server are working
+~~Current: Proof of Concept, client and server are working~~
 
-Phase 1: Easy deployment on Kubernetes with UDP load balancing, better configuration
+Phase 1: Easy deployment on Kubernetes, better configuration
 
 Phase 2: Web UI integrated with SSO using [oauth2_proxy](https://github.com/bitly/oauth2_proxy)
 
