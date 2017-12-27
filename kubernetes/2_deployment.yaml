@@ -10,18 +10,20 @@ spec:
         app: kubewire
     spec:
       containers:
-        - image: antoniaklja/kubewire:latest
-          name: kubewire
-          imagePullPolicy: Always
-          ports:
-          - containerPort: 5182 # network tunnel
-            protocol: UDP
-          - containerPort: 80 # web ui
-            protocol: TCP
-          resources:
-            limits:
-              cpu: 200m
-              memory: 250Mi
-            requests:
-              cpu: 100m
-              memory: 150Mi
+      - image: antoniaklja/kubewire:latest
+        name: kubewire
+        imagePullPolicy: Always
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 5182 # network tunnel
+          protocol: UDP
+        - containerPort: 80 # web ui
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 200m
+            memory: 250Mi
+          requests:
+            cpu: 100m
+            memory: 150Mi
