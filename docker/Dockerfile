@@ -3,7 +3,7 @@ LABEL maintainer "Bartek Antoniak <antoniaklja@gmail.com>"
 
 EXPOSE 5182/udp
 
-RUN apk add -U wireguard-tools bash iptables --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/
+RUN apk add -U wireguard-tools bash iptables linux-headers --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY add_peer.sh /add_peer.sh
