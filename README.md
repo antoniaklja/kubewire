@@ -12,10 +12,10 @@ For more information please take a look at [Whitepaper](https://www.wireguard.co
 
 Currently [WireGuard](https://www.wireguard.com) does not support cross platform client running in userspace.
 It is planned to release several [userspace implementations in safe languages like Go and Rush](https://www.wireguard.com/xplatform/).
- 
 
-Also not every cloud provider supports `UPD` load balancing based k8s services.
-We have to figure out how to expose `UPD` server on k8s. 
+[CoreOS](https://coreos.com/) does not support WireGuard:
+- [Add Wireguard kernel module and tools #2225](https://github.com/coreos/bugs/issues/2225) 
+- [Wireguard VPN support #2305](https://github.com/coreos/bugs/issues/2305) 
 
 ## Roadmap
 
