@@ -9,5 +9,6 @@ spec:
   ports:
   - port: 5182
     protocol: UDP
+    nodePort: 32367
   selector:
     name: kubewire
