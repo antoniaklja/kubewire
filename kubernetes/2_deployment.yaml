@@ -9,16 +9,12 @@ spec:
       labels:
         app: kubewire
     spec:
-      hostNetwork: true
       containers:
       - image: antoniaklja/kubewire:latest
         name: kubewire
         imagePullPolicy: Always
         securityContext:
           privileged: true
-        volumeMounts:
-        - mountPath: /lib/modules
-          name: lib-modules
         ports:
         - containerPort: 5182 # network tunnel
           protocol: UDP
@@ -31,7 +27,3 @@ spec:
           requests:
             cpu: 100m
             memory: 150Mi
-      volumes:
-      - name: lib-modules
-        hostPath:
-          path: /lib/modules

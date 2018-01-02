@@ -9,6 +9,15 @@ if [[ $# -ne 3 ]] ; then
     exit 1
 fi
 
+clean_up() {
+	# Perform program exit housekeeping
+	echo "Removing wireguard network interface and corresponding routes"
+    ip link del dev wg0
+	exit
+}
+
+trap clean_up SIGHUP SIGINT SIGTERM
+
 server_endpoint=$1
 server_port=$2
 server_public_key=$3
@@ -21,7 +30,7 @@ ip link del dev wg0 2>/dev/null || true
 ip link add dev wg0 type wireguard
 wg set wg0 private-key /tmp/wg_private_key
 wg set wg0 listen-port 5182
-ip address add 10.0.0.2/16 dev wg0
+ip address add 10.1.0.0/16 dev wg0
 
 echo "Activating wireguard network interface"
 ip link set up dev wg0
@@ -36,3 +45,7 @@ host="$(wg show wg0 endpoints | sed -n 's/.*\t\(.*\):.*/\1/p')"
 ip route add $(ip route get $host | sed '/ via [0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/{s/^\(.* via [0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\).*/\1/}' | head -n 1) 2>/dev/null || true
 ip route add 0/1 dev wg0
 ip route add 128/1 dev wg0
+
+# keep running
+echo "Running"
+while true; do wg show wg0; sleep 60; done
